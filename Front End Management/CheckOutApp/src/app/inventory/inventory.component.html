@@ -1,0 +1,38 @@
+<div class="table-responsive-lg">
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-secondary" type="submit" (click)="addItem()">Add To Inventory</button>
+ 
+      </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th *ngFor="let head of headElements" scope="col">{{head}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of items">
+                
+                <td scope="col-lg-2"><input [(ngModel)]="item.name" (change)="updateInventory(item)" type="text" class="input-label" ></td>
+
+                <td scope="col-lg-2"><input [(ngModel)]="item.event" (change)="updateInventory(item)" type="text" class="input-label" ></td>
+
+                <td scope="col-lg-2">
+                    <tr>
+                        <td scope="col-md-2">{{item.cd_disk}}</td>
+                    </tr>
+                    <tr>
+                        <td scope="col-md-2">{{item.dvd_disk}}</td>
+                    </tr>
+                </td>
+                <td>
+                    <tr>
+                    <td scope="col-lg-2"><input [(ngModel)]="item.cd_quantity" (change)="updateInventory(item)" type="text" class="input-label" ></td>
+                    </tr>
+                    <tr>
+                    <td scope="col-lg-2"><input [(ngModel)]="item.dvd_quantity" (change)="updateInventory(item)" type="text" class="input-label" ></td>
+                    </tr>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  </div>

@@ -1,0 +1,62 @@
+.input-label{
+    background:rgba(0,0,0,0);
+    border:none;
+    cursor:pointer;
+}
+
+.input-lable-lg{
+    background:rgba(0,0,0,0);
+    border:none;
+    cursor: pointer;
+    font-size: large;
+    font-weight: bold;
+
+}
+
+.input-group{
+    background:rgba(0,0,0,0);
+    border:none;
+    cursor:pointer;
+}
+
+#headertable, #infotable{
+    border:1px black solid;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+table caption {
+    font-size: 1.5em;
+    margin: .5em 0 .75em;
+}
+
+table tr{
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    padding: .35em;
+}
+
+
+
+#headertable{
+    font-size: .85em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+
+
+table caption{
+    font-size:1.3em;
+}
+
+
+.button{
+    transition-duration: 0.4s;
+}
+
+.button:hover{
+    background-color: red;
+    color:white;
+}
+

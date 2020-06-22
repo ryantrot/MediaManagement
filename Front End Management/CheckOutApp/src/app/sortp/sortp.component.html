@@ -1,0 +1,48 @@
+<table class="table" id="headertable"> 
+
+    <thead>
+
+      <tr>
+        <th *ngFor="let head of headElements" scope="col"  >{{head}} </th>
+        <th>
+          <div ngbDropdown class="dropdown">
+            <button ngbDropdownToggle class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="sr-only">Toggle Dropdown</span>Sort
+            </button>
+            <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" routerLink="/complete" routerLinkActive="active-link">Status of Orders</a>
+              <a class="dropdown-item" routerLink="/sortdate" routerLinkActive="active-link">Sort by Date</a>
+              <a class="dropdown-item" routerLink="/sortfullname" routerLinkActive="active-link">Sort by Customer Name</a>
+              <a class="dropdown-item" routerLink="/sortpreacher" routerLinkActive="active-link">Sort by Preacher</a>
+            </div>
+          </div>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders"  class=" list-group-item-action">
+
+        <td scope="col-md-2" style="overflow:hidden" ><input [(ngModel)]="order.fullname" (change)="updateOrders(order)" type="text" class="input-group"></td>
+       
+        <td scope="col-md-2" ><input [(ngModel)]="order.email" (change)="updateOrders(order)" type="text" class="input-group" ></td>
+        
+        <td scope="col-md-2" style="overflow:hidden"><input [(ngModel)]="order.phone_number" (change)="updateOrders(order)" type="text" class="input-group" ></td>
+       
+        <td scope="col-md-2" style="overflow:hidden"><input [(ngModel)]="order.name_preacher" (change)="updateOrders(order)" type="text" class="input-group" ></td>
+       
+        <td scope="col-md-2" ><input [(ngModel)]="order.event_name" (change)="updateOrders(order)" type="text" class="input-group" ></td>
+       
+        <td scope="col-md-2" style="overflow:hidden"><input [(ngModel)]="order.event_date" (change)="updateOrders(order)" type="text" class="input-group" ></td>
+       
+        <td   *ngIf="order.disk_type == 'DVD'" title="Click to Un-Finish Task" onmouseover="" style="cursor: pointer;" a (click) = "setDiskType(order)"> <img src="assets\Picture\dvd-icon.png" width="75px" height="75px"></td>
+        
+        <td *ngIf="order.disk_type == 'CD'" title="Click to Un-Finish Task" onmouseover="" style="cursor: pointer;" a (click) = "setDiskType(order)"> <img src="assets\Picture\cd.jpg" width="75px" height="75px"></td>
+
+        <td   *ngIf="order.status == true" title="Click to Un-Finish Task" onmouseover="" style="cursor: pointer;" a (click) = "toggleStatus(order)"> Complete✔️ </td>
+
+        <td  *ngIf="order.status == false" title="Click to Finish Task" onmouseover="" style="cursor: pointer;" a (click) = "toggleStatus(order)"> Not fulfilled❌ </td>
+       
+        <td><button class="btn btn-outline-danger button" type="submit" (click)="deleteOrders(order)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>

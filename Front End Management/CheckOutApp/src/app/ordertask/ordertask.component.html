@@ -1,0 +1,31 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th>Imcomplete Task</th>
+        <th>Complete Task</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <tr *ngFor="let order of orders" class=" list-group-item-action">
+  
+            <td *ngIf="order.status ==false" scope="col-md-2" style="overflow:hidden" ><input [(ngModel)]="order.fullname" (change)="updateOrders(order)" type="text" class="input-label"></td>
+            <td   *ngIf="order.status == true && order.status==false" title="Click to Un-Finish Task" onmouseover="" style="cursor: pointer;" a (click) = "toggleStatus(order)"> Complete✔️ </td>
+          <td  *ngIf="order.status == false" title="Click to Finish Task" onmouseover="" style="cursor: pointer;" a (click) = "toggleStatus(order)"> Not fulfilled❌ </td>
+  
+          </tr>
+        </td>
+  
+        <td>
+          <tr *ngFor="let order of orders"  class=" list-group-item-action">
+  
+            <td *ngIf="order.status" scope="col-md-2" style="overflow:hidden" ><input [(ngModel)]="order.fullname" (change)="updateOrders(order)" type="text" class="input-label"></td>
+            <td   *ngIf="order.status == true" title="Click to Un-Finish Task" onmouseover="" style="cursor: pointer;" a (click) = "toggleStatus(order)"> Complete✔️ </td>
+          <td  *ngIf="order.status == false && order.status" title="Click to Finish Task" onmouseover="" style="cursor: pointer;" a (click) = "toggleStatus(order)"> Not fulfilled❌ </td>
+  
+          </tr>
+        </td>
+      </tr>
+    </tbody>
+  </table>
